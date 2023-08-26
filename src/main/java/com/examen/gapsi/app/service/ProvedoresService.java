@@ -16,13 +16,25 @@ import com.examen.gapsi.app.model.entity.ProvedoresEntity;
 import com.examen.gapsi.app.repository.IProvedorRepository;
 
 
+/**
+ * Clase: ProvedoresService 
+ * Descripcion: Es el service que se utiliza para la transaccion de los datos con el repository
+ * @author LuisCalderon
+ * @version 1.0.0
+ * @since 25/08/2023
+ */
+
 @Service
 public class ProvedoresService implements IProvedoresService {
 
 	@Autowired
 	IProvedorRepository provedorRepository;
 	
-	
+	/**
+	 * Metodo que funciona para buscar un proveedor por id
+	 * @param provedor es el id del proveedor a buscar
+	 * @return BaseReponse es el objeto base de response
+	 */
 	@Override
 	@Transactional(readOnly = true)
 	public BaseReponse obtenerProvedor(Long provedor) {
@@ -46,7 +58,11 @@ public class ProvedoresService implements IProvedoresService {
 		return bsr;
 	}
 	
-	
+	/**
+	 * Metodo que funciona para el alta de un proveedor validado por nombre
+	 * @param provedor es el objeto a guardar
+	 * @return BaseReponse es el objeto base de response
+	 */
 	@Override
 	@Transactional
 	public BaseReponse altaProvedor(ProvedorModel provedor) {
@@ -77,6 +93,12 @@ public class ProvedoresService implements IProvedoresService {
 	}
 	
 	
+	/**
+	 * Metodo que funciona para mapear el objeto a tipo de entidad
+	 * @param provedor es el objeto a mapear
+	 * @return ProvedoresEntity es el objeto que retorna ya mapeado
+	 */
+	
 	private ProvedoresEntity createObecjts(ProvedorModel provedor) {
 		ProvedoresEntity mapper = new ProvedoresEntity();
 		
@@ -89,7 +111,14 @@ public class ProvedoresService implements IProvedoresService {
 	}
 
 
+	/**
+	 * Metodo que funciona para eliminar al proveedor por id
+	 * @param idProvedor es el id del proveedor a eliminar
+	 * @return BaseReponse es el objeto base de response
+	 */
+	
 	@Override
+	@Transactional
 	public BaseReponse eliminarProvedor(Long idProvedor) {
 		BaseReponse bsr = new  BaseReponse();
 		
@@ -108,7 +137,12 @@ public class ProvedoresService implements IProvedoresService {
 	}
 
 
+	/**
+	 * Metodo que funciona para obtener todos los proveedores
+	 * @return BaseReponse es el objeto base de response
+	 */
 	@Override
+	@Transactional(readOnly = true)
 	public BaseReponse listaProvedores() {
 		BaseReponse bsr = new  BaseReponse();
 		

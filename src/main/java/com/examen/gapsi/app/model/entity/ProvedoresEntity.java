@@ -1,26 +1,33 @@
 package com.examen.gapsi.app.model.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Entity; 
 import javax.persistence.Id;
-import javax.persistence.OrderBy;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.OrderBy; 
 import javax.persistence.Table;
  
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor; 
+import lombok.NoArgsConstructor; 
 
 
+/**
+ * Clase: ProvedoresEntity 
+ * Descripcion: Es la entidad de la tabla provedores
+ * @author LuisCalderon
+ * @version 1.0.0
+ * @since 25/08/2023
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name ="provedores")
 public class ProvedoresEntity {
 	
+	
+	
+	//id de proveedores 
+	//tipo Long
+	//no debe de ir nullo
 	@Id 
 	@OrderBy("idProvedor ASC")
 	@Column(name ="idProvedor", updatable = false, nullable = false)
@@ -28,15 +35,31 @@ public class ProvedoresEntity {
 	//@SequenceGenerator(name = "SEQ", sequenceName = "SEQ_ID_PROVEDORES", allocationSize = 11)
 	private Long idProvedor;
 	
+	
+	//Es el nombre del proveedor
+	//tipo Alfanumerico tipo String
+	//no debe de ir nullo
 	@Column(name ="nombre",nullable = false)
 	private String nombre;
 	
+	
+	//Es el apellido del proveedor
+		//tipo Alfanumerico tipo String
+		//no debe de ir nullo
 	@Column(name ="apellido",nullable = false)
 	private String apellido;
 	
+	
+	//Es el telefono del proveedor
+		//tipo Alfanumerico tipo String
+		//no debe de ir nullo
 	@Column(name ="telefono",nullable = false)
 	private String telefono;
 	
+	
+	//Es la compania que pertenece del proveedor
+		//tipo Alfanumerico tipo String
+		//no debe de ir nullo
 	@Column(name ="compania",nullable = false)
 	private String compania;
 
